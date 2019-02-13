@@ -18,7 +18,7 @@ public class MusicTester {
 			System.out.println(s1.getSongArtists());
 			
 			System.out.println(s1.getSongArtists());
-		
+		*/
 		
 		/*
 		Song s2 = new Song("'04322ee1-d1d2-4f7c-87c2-8e82266f659e'");
@@ -34,14 +34,22 @@ public class MusicTester {
 		Song s3 = new Song("'0615a78a-6ba1-466f-a616-5e6b5894cb1b'");
 			s3.deleteSong("'0615a78a-6ba1-466f-a616-5e6b5894cb1b'");
 			*/
-			
-		Song s3 = new Song("'0615a78a-6ba1-466f-a616-5e6b5894cb1b'");
-		s3.addartist("'0615a78a-6ba1-466f-a616-5e6b5894cb1b'");
 		
+		/*
+		Artist g4 = new Artist("'0208d02c-191e-4e58-9103-f474b9253581'");
+		Song s3 = new Song("'0615a78a-6ba1-466f-a616-5e6b5894cb1b'");
+			s3.addArtist(g4);
+		*/
 		
 	//	Song s4 = new Song("'acbcd1b9-dcb2-413f-bc1a-598d2943f340'");
 		//	s4.deleteArtist("'0437c71f-fee1-4f70-9f9e-ac423be67c56'");
 			
+		
+		/*
+		Artist g4 = new Artist("'0208d02c-191e-4e58-9103-f474b9253581'");
+		Song s3 = new Song("'0615a78a-6ba1-466f-a616-5e6b5894cb1b'");
+			s3.deleteArtist(g4);
+		*/
 			
 		
 		/*
@@ -90,10 +98,26 @@ public class MusicTester {
 			*/
 			
 		/*
-		Album a2 = new Album("'015ebcfe-a37b-4e4f-9c3e-48710411e832'");
-			a2.deleteAlbum("'0615a78a-6ba1-466f-a616-5e6b5894cb1b'");
+		Album a2 = new Album("'00b066c1-b308-4902-8416-df37fa295261'");
+			a2.deleteAlbum("'00b066c1-b308-4902-8416-df37fa295261'");
 			*/
 		
+		
+		/*
+		Song s5 = new Song("'0208d02c-191e-4e58-9103-f474b9253581'");
+		Album a2 = new Album("'00b066c1-b308-4902-8416-df37fa295261'");
+			a2.addSong(s5);
+		*/
+		
+		/*
+		Album a2 = new Album("'00b066c1-b308-4902-8416-df37fa295261'");
+				a2.deleteSong("'0437c71f-fee1-4f70-9f9e-ac423be67c56'");
+		*/
+		
+		
+		Song s2 = new Song("'04322ee1-d1d2-4f7c-87c2-8e82266f659e'");
+		Album a6 = new Album("'00b066c1-b308-4902-8416-df37fa295261'");
+			a6.deleteSong(s2);
 		
 		
 		

@@ -34,6 +34,7 @@ public class Song {
 	/**
 	*
 	* @author Thomas Toure
+	* class constructor
 	* Creates a new song record in the database
 	* Creates a new Song object
 	* Generates a songID using  java.util.UUID.randomUUID() method
@@ -58,6 +59,7 @@ public class Song {
 	/**
 	*
 	* @author Thomas Toure
+	* class constructor
 	* Retrieves an existing record from the database using songID as the key
 	* Creates a new song object
 	* Sets corresponding class properties
@@ -145,10 +147,10 @@ public class Song {
 	* @author Thomas Toure
 	* Deletes an artist from the list of the song’s artists by artistID property of the Artist object
 	 */
-	public void deleteartist (Artist artist) {
+	public void deleteArtist (Artist artist) {
 		db = new DbUtilities();
 		
-		String sql5 = "DELETE FROM song_artist WHERE fk_artist_id= ' "+ artist.getArtistID()+"' AND fk_song_id='"+this.songID+"';";
+		String sql5 = "DELETE FROM song_artist WHERE fk_artist_id=  "+ artist.getArtistID()+" AND fk_song_id="+this.songID+";";
 		System.out.println(sql5);
 		db.executeQuery(sql5);
 		
@@ -228,10 +230,7 @@ public class Song {
 	public void setSongArtists(Map<String, Artist> songArtists) {
 		
 		
-		//String sql = "UPDATE song_artist WHERE fk_artist_id  "+ songArtists.getArtistID()+" AND fk_song_id"+songID+";";
-	//this.songArtists = songArtists;
-	//	System.out.println(sql);
-	//	db.executeQuery(sql);
+	
 		
 	}
 	

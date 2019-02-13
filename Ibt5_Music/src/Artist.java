@@ -5,9 +5,8 @@ import java.sql.SQLException;
 /**
 *
 * @author Thomas Toure
-* Retrieves an existing record from the database using songID as the key
-* Creates a new song object
-* Sets corresponding class properties
+* 
+
  */
 
 public class Artist {
@@ -22,9 +21,11 @@ public class Artist {
 	/**
 	*
 	* @author Thomas Toure
-	* Retrieves an existing record from the database using songID as the key
-	* Creates a new song object
-	* Sets corresponding class properties
+	* class constructor
+	*Retrieves an existing record from the database using artistID as the key
+Creates a new Artist object
+Sets corresponding class properties
+
 	 */
 
 public Artist(String firstName,String lastName,String bandName) {
@@ -46,9 +47,11 @@ public Artist(String firstName,String lastName,String bandName) {
 /**
 *
 * @author Thomas Toure
-* Retrieves an existing record from the database using songID as the key
-* Creates a new song object
-* Sets corresponding class properties
+* class constructor
+*Retrieves an existing record from the database using artistID as the key
+Creates a new Artist object
+Sets corresponding class properties
+
  */
 public Artist(String artistID) {
 	
