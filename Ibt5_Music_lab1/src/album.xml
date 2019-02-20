@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AlbumList>
+<AlbumID>1</AlbumID>
+<title>HOV</title>
+<length>3</length>
+<coverImagePath>https://www.asapraockysongs.com</coverImagePath>
+<releaseDate>02/02/2018</releaseDate>
+<recordingCompany>Roc BOys</recordingCompany>
+
+
+<albumSongs>
+	<Song>
+		<SongID>1</SongID>
+		<SongTitle>Bad company</SongTitle>
+		<Songlength>3</Songlength>
+		<SongFilepath>https://www.asapraockysongs.com</SongFilepath>
+		<SongreleaseDate>02/02/2018</SongreleaseDate>
+		<Songrecordate>01/01/2017</Songrecordate>
+	</Song>
+</albumSongs>
+
+
+
+</AlbumList>
