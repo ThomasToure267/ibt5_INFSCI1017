@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SongList>
+<SongID>1</SongID>
+<title>Bad company</title>
+<length>3</length>
+<filepath>https://www.asapraockysongs.com</filepath>
+<releaseDate>02/02/2018</releaseDate>
+<recordDate>01/01/2017</recordDate>
+<songArtists>
+	<artist>
+		<artistID>1</artistID>
+		<firstName>John</firstName>
+		<lastName>Lennon</lastName>
+		<bandName>Beatles</bandName>
+		
+	</artist>
+</songArtists>
+
+
+
+</SongList>
