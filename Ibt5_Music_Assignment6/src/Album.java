@@ -186,7 +186,7 @@ public void deleteSong(String songID,Connection mySqlConn) {
 		
 		stmt = mySqlConn.prepareStatement(sql4);
 		stmt.setString(1, this.albumID);
-		//stmt.setString(2, songID.getsongID());
+		stmt.setString(2, songID);
 		
 		System.out.println(stmt);
 		int i = stmt.executeUpdate();
@@ -203,13 +203,26 @@ public void deleteSong(String songID,Connection mySqlConn) {
 * @author Thomas Toure
 * Deletes a song from the list of the album’s songs by songID property of the corresponding Song object
  */
-public void deleteSong(Song song) {
+public void deleteSong(Song song,Connection mySqlConn) {
 	
 	
 	db = new DbUtilities();
-	String sql5 = "DELETE FROM album_song WHERE fk_song_id  "+ song.getsongID()+" AND fk_album_id"+this.albumID+";";
-	System.out.println(sql5);
-	db.executeQuery(sql5);
+	String sql5 = "DELETE FROM album_song WHERE fk_song_id  ? AND fk_album_id=?";
+	try {
+		stmt = mySqlConn.prepareStatement(sql5);
+		stmt.setString(1, song.getsongID());
+		stmt.setString(2,this.albumID);
+		System.out.println(stmt);
+		int i = stmt.executeUpdate();
+		System.out.println("deleted foreign key song and foreign key album");
+		
+	}
+	catch (SQLException e) {
+		e.printStackTrace();	
+			
+		}
+	
+	
 	
 }
 public String getAlbumID() {

@@ -1,16 +1,7 @@
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.UUID;
 
-import java.sql.PreparedStatement;
-
-import java.sql.*;
-
+import javax.persistence.*;
+ 
 /**
  *Class Song 
  *Provides methods for creating,deleting and updating a database
@@ -21,6 +12,7 @@ Generates a songID using  java.util.UUID.randomUUID() method
 Sets corresponding class properties
 
  */
+
 
 
 
@@ -191,11 +183,24 @@ public class Song {
 	* Deletes an artist from the list of the song’s artists by artistID
 	 */
 	
-	public void deleteArtist(String aristID) {
+	public void deleteArtist(String aristID,Connection mySqlConn) {
 		db = new DbUtilities();
-		String sql4 = "DELETE FROM song_artist WHERE fk_artist_id = "+ aristID+" AND fk_song_id="+this.songID+";";
-		System.out.println(sql4);
-		db.executeQuery(sql4);
+		
+		
+		String sql4 = "DELETE FROM song_artist WHERE fk_artist_id = ? AND fk_song_id=?";
+		try {
+			stmt = mySqlConn.prepareStatement(sql4);
+			stmt.setString(1, aristID);
+			stmt.setString(2,this.songID);
+			System.out.println(stmt);
+			int i = stmt.executeUpdate();
+			System.out.println("new record got inserted");
+			
+		}
+		catch (SQLException e) {
+			e.printStackTrace();	
+				
+			}
 		
 	}
 	
@@ -205,13 +210,23 @@ public class Song {
 	* @author Thomas Toure
 	* Deletes an artist from the list of the song’s artists by artistID property of the Artist object
 	 */
-	public void deleteArtist (Artist artist) {
+	public void deleteArtist (Artist artist,Connection mySqlConn) {
 		db = new DbUtilities();
 		
-		String sql5 = "DELETE FROM song_artist WHERE fk_artist_id=  "+ artist.getArtistID()+" AND fk_song_id="+this.songID+";";
-		System.out.println(sql5);
-		db.executeQuery(sql5);
-		
+		String sql5 = "DELETE FROM song_artist WHERE fk_artist_id=  ? AND fk_song_id =? ";
+		try {
+			stmt = mySqlConn.prepareStatement(sql5);
+			stmt.setString(1, artist.getArtistID());
+			stmt.setString(2,this.songID);
+			System.out.println(stmt);
+			int i = stmt.executeUpdate();
+			System.out.println("new record got inserted");
+			
+		}
+		catch (SQLException e) {
+			e.printStackTrace();	
+				
+			}
 	}
 
 	

@@ -2,6 +2,9 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="Ibt5_MusicJPA_Assignment7Genre">
 	<class>Genre</class>
+	<class>Artist</class>
+	<class>Song</class>
+	<class>Album</class>
 	<properties>
 	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://sis-teach-01.sis.pitt.edu:3306/music2019"/>
 	<property name="javax.persistence.jdbc.user" value="infsci1017_2019"/>
