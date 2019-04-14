@@ -15,7 +15,7 @@ public class Genre {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	@Column(name = "genre_id")
-	private int genreID;
+	private String genreID;
 	
 	@Column(name = "genre_name")
 	private String genreName;
@@ -29,7 +29,7 @@ public class Genre {
 		
 	}
 	
-	public void setGenreID(int GenreID) {
+	public void setGenreID(String GenreID) {
 		this.genreID = GenreID;
 		
 	}
@@ -53,9 +53,13 @@ public class Genre {
 		this.description = description;
 		
 	}
-	public int getGenreID() {
+	public String getGenreID() {
 		return genreID;
 	}
+	//public JSONObject to JSON() {
+//		JSONobject 
+//	}
+	
 	
 	
 	

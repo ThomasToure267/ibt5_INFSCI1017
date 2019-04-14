@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Music Songs</title>
+<script src="js/jquery-3.3.1.min.js"></script>
+<link href="css/Style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<div id="SongSearch">
+<div>
+		Search Type: 
+		<select name="searchType" id="searchType" class="textField">
+			<option value="">Everything</option>
+			<option value="equals">Equals</option>
+			<option value="begins">Begins</option>
+			<option value="ends">Ends</option>
+			<option value="contains">Contains</option>
+		</select>
+	</div>
+	<div>
+		Song Name: <input type="text" id="title" name="title" value="" class="textField" />
+	</div>
+	
+	<div>
+		<input type="button" id="btnSearch" name="btnSubmit" value="Search" />
+	</div>
+</div>
+
+<div id="searchResults">
+	<table id="tblSearchResults">
+		<tr>
+			<th>Title</th>
+			<th>length</th>
+			<th>file_path</th>
+		</tr>
+	</table>
+</div>
+
+
+</body>
+
+<script>
+
+$(document).ready(function (){
+	$("#btnSearch").click(function (){
+		search();
+		
+	});
+	
+	$("#title").keyup(function (){
+		var keyPressed =  $("#title").val();
+		
+		if (keyPressed.length > 2 ){
+			search();
+			
+		}
+		else{
+			$(".dataRow").remove(); 
+			
+		}
+
+		
+	});
+
+});
+
+			function search (optSearchType){
+			var title = $("#title").val();
+			var searchType = $('#searchType').val();
+			//console.log(optSearchType); 
+			
+			//if(optSearchType === undefined){
+			//	searchType = $("#searchType").val();
+			//}
+		//	else{
+		//		searchType = optSearchType;
+		//	}
+			
+			// console.log("Genre: " + genreName);
+			// console.log("SearchType: " + searchType);
+			var url = "SongListWS?title=" + title + "&searchType=" + searchType;
+			// console.log(url);
+			$.get(url, function(resp){
+				parseSongData(resp);
+			})
+		}
+	
+	
+	function parseSongData(data){
+		// JSON.parse(data);
+		
+		//data.setContentType("application/json");
+		
+		
+		
+		
+		// $("#searchResults").text(JSON.stringify(data));
+		$(".dataRow").remove();
+		var result = "";
+		
+		for(var i=0; i < data.length; i++){
+			var tr = $("<tr></tr>"); // created empty html table row
+			tr.attr({"class" : "dataRow"});
+			
+			// First data cell
+			var td = $("<td></td>"); // created empty html table data
+			td.html(data[i].title);
+			tr.append(td);
+			
+			// Second data cell
+			// Note that we don't need to redeclare this
+			td = $("<td></td>");
+			td.html(data[i].length)
+			tr.append(td);
+			
+			// Second data cell
+			// Note that we don't need to redeclare this
+			td = $("<td></td>");
+			td.html(data[i].file_path)
+			//td.html(link)
+			tr.append(td);
+			
+			// Append row to the table
+			$("#tblSearchResults").append(tr);
+			
+			// result += 'Name: ' + data[i].genre_name + ' Description: ' + data[i].description + '<br />';
+		}
+		
+		// $("#searchResults").html(result);
+	}
+</script>
+
+
+</html>

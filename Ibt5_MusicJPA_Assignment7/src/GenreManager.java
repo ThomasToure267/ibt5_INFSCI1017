@@ -31,6 +31,20 @@ public class GenreManager {
 		
 	}
 	
+	
+	public Genre getGenre(String genreID) {
+		
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Ibt5_MusicJPA_Assignment7");
+		EntityManager em = emFactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		Genre g = em.find(Genre.class, genreID);
+
+		em.close();
+		emFactory.close();
+		return g;    
+	}
+	
 	// public void updateGenre()
 
 }
